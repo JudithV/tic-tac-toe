@@ -1,6 +1,9 @@
 from tkinter import *
 import random
 
+TAM_TABLERO = 9
+TAM_FILA_COLUMNA = 3
+
 def main():
     ventana = Tk()
     ventana.title("3 en raya")
@@ -28,8 +31,8 @@ def main():
     frame = Frame(ventana)
     frame.pack()
 
-    for i in range(3):
-        for j in range(3):
+    for i in range(TAM_FILA_COLUMNA):
+        for j in range(TAM_FILA_COLUMNA):
             tablero[i][j] = Button(frame, text="", font=("rockwell", 20), width=5, height=2,
                                    command= lambda fila=i, columna=j: turno_siguiente(fila,columna))
             tablero[i][j].grid(row=i, column=j)
@@ -40,7 +43,7 @@ def main():
 def comprobar_ganador():
     global tablero
     # Si una fila ha sido rellenada por el mismo jugador
-    for i in range(3):
+    for i in range(TAM_FILA_COLUMNA):
         if tablero[i][0]['text'] == tablero[i][1]['text'] == tablero[i][2]['text'] != "":
             tablero[i][0].config(bg="green")
             tablero[i][1].config(bg="green")
@@ -48,7 +51,7 @@ def comprobar_ganador():
             return True
 
     # Si una columna ha sido rellenada por el mismo jugador
-    for j in range(3):
+    for j in range(TAM_FILA_COLUMNA):
         if tablero[0][j]['text'] == tablero[1][j]['text'] == tablero[2][j]['text'] != "":
             tablero[0][j].config(bg="green")
             tablero[1][j].config(bg="green")
@@ -70,8 +73,8 @@ def comprobar_ganador():
         return True
 
     elif espacios_en_blanco() is False: # Si todo el tablero se ha rellenado pero no hay ganador...
-        for i in range(3):
-            for j in range(3):
+        for i in range(TAM_FILA_COLUMNA):
+            for j in range(TAM_FILA_COLUMNA):
                 tablero[i][j].config(bg="yellow")
         return "Empate"
 
@@ -82,12 +85,12 @@ def comprobar_ganador():
 def espacios_en_blanco():
     global tablero
     ocupados = 0
-    for i in range(3):
-        for j in range(3):
+    for i in range(TAM_FILA_COLUMNA):
+        for j in range(TAM_FILA_COLUMNA):
             if tablero[i][j]['text'] != "":
                 ocupados += 1
 
-    if ocupados == 9: # Si el tablero de 3x3 está completo
+    if ocupados == TAM_TABLERO: # Si el tablero de 3x3 está completo
         return False
     else:
         return True
@@ -98,8 +101,8 @@ def nueva_partida():
 
     etiqueta.config(text=("Turno del jugador "+ str(jugadores.index(jugador) + 1) +"."))
 
-    for i in range(3):
-        for j in range(3):
+    for i in range(TAM_FILA_COLUMNA):
+        for j in range(TAM_FILA_COLUMNA):
             tablero[i][j].config(text="",bg="#F0F0F0")
 
 def turno_siguiente(fila, columna):
