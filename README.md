@@ -13,4 +13,9 @@ Una vez instalados los requerimientos necesarios, se juega lanzando desde la ter
 
 `python tictactoe.py`
 
-Esto ejecutaría el script que contiene el código del juego.
+Esto ejecutaría el script que contiene el código del juego. Esto haría que se nos abra una ventana emergente como esta:
+<img width="200" alt="image" src="https://github.com/JudithV/tic-tac-toe/assets/42940890/2ff736b3-bb50-4c88-b6de-021335df244d">
+
+Bastaría con hacer click en una casilla para insertar en ella la ficha del jugador que tiene el turno. Luego, sería el turno del siguiente jugador. La partida siempre comienza siendo el turno del jugador uno, y luego se le pasa el turno al jugador dos y así sucesivamente. 
+Si el otro jugador intentase poner su ficha en una casilla ocupada del tablero, no ocurriría nada. Sigue siendo su turno hasta que introduzca un movimiento válido.
+Una vez haya ganado un jugador o bien se haya acabado en empate (todas las casillas se encuentran rellenadas pero no ha ganado nadie), dándole al botón de "Reiniciar" se puede iniciar una nueva partida con el tablero limpio.
