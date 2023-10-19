@@ -11,6 +11,6 @@ Pues, para el desarrollo de este pequeño juego, he utilizado la librería de py
 ### Ejecución
 Una vez instalados los requerimientos necesarios, se juega lanzando desde la terminal en la carpeta en la que se encuentra el archivo `tictactoe.py` el siguiente comando:
 
-`python3 tictactoe.py`
+`python tictactoe.py`
 
 Esto ejecutaría el script que contiene el código del juego.
